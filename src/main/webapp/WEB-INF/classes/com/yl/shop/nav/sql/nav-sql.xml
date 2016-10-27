@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yl.shop.nav.dao.NavDao">
+
+	<parameterMap id="parameterMap" type="com.yl.shop.nav.entity.Nav"></parameterMap>
+	<resultMap id="resultMap" type="com.yl.shop.nav.entity.Nav">
+		<result property="id" column="id"/>
+		<result property="ctype" column="ctype"/>
+		<result property="cid" column="cid"/>
+		<result property="name" column="name"/>
+		<result property="ifshow" column="ifshow"/>
+		<result property="vieworder" column="vieworder"/>
+		<result property="opennew" column="opennew"/>
+		<result property="url" column="url"/>
+		<result property="type" column="type"/>
+	</resultMap>
+	
+	<sql id="columnSql">
+		select
+			<trim suffixOverrides=",">
+				t.id,
+				t.ctype,
+				t.cid,
+				t.name,
+				t.ifshow,
+				t.vieworder,
+				t.opennew,
+				t.url,
+				t.type,
+		 	</trim>
+		from nav t
+	</sql>
+	
+	<select id="find" parameterMap="parameterMap" resultMap="resultMap">
+		<include refid="columnSql"></include>
+		<where>
+			<if test="ctype != null and ctype != ''">
+				t.ctype = #{ctype}
+			</if>
+			<if test="cid != null and cid != ''">
+				t.cid = #{cid}
+			</if>
+			<if test="name != null and name != ''">
+				t.name = #{name}
+			</if>
+			<if test="ifshow != null and ifshow != ''">
+				t.ifshow = #{ifshow}
+			</if>
+			<if test="vieworder != null and vieworder != ''">
+				t.vieworder = #{vieworder}
+			</if>
+			<if test="opennew != null and opennew != ''">
+				t.opennew = #{opennew}
+			</if>
+			<if test="url != null and url != ''">
+				t.url = #{url}
+			</if>
+			<if test="type != null and type != ''">
+				t.type = #{type}
+			</if>
+		</where>
+	</select>
+	
+	<select id="getById" parameterType="java.lang.Integer" resultMap="resultMap">
+		<include refid="columnSql"></include>
+		where id = #{value}
+	</select>
+	
+	<insert id="add" parameterMap="parameterMap">
+		insert into nav
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			ctype,
+			cid,
+			name,
+			ifshow,
+			vieworder,
+			opennew,
+			url,
+			type,
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			#{ctype},
+			#{cid},
+			#{name},
+			#{ifshow},
+			#{vieworder},
+			#{opennew},
+			#{url},
+			#{type},
+		</trim>
+	</insert>
+	
+	<insert id="batchAdd" parameterType="java.util.List">
+		insert into nav
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			ctype,
+			cid,
+			name,
+			ifshow,
+			vieworder,
+			opennew,
+			url,
+			type,
+		</trim>
+		values
+		<foreach collection="list" item="item" separator=",">
+			<trim prefix="(" suffix=")" suffixOverrides=",">
+				#{item.ctype},
+				#{item.cid},
+				#{item.name},
+				#{item.ifshow},
+				#{item.vieworder},
+				#{item.opennew},
+				#{item.url},
+				#{item.type},
+			</trim>
+		</foreach>
+	</insert>
+	
+	<update id="update" parameterMap="parameterMap">
+		update nav
+		<set>
+			ctype = #{ctype},
+			cid = #{cid},
+			name = #{name},
+			ifshow = #{ifshow},
+			vieworder = #{vieworder},
+			opennew = #{opennew},
+			url = #{url},
+			type = #{type},
+		</set>
+		where id = #{id}
+	</update>
+	
+	<update id="updateNotNull" parameterMap="parameterMap">
+		update nav
+		<set>
+			<if test="ctype != null">
+			ctype = #{ctype},
+			</if>
+			<if test="cid != null">
+			cid = #{cid},
+			</if>
+			<if test="name != null">
+			name = #{name},
+			</if>
+			<if test="ifshow != null">
+			ifshow = #{ifshow},
+			</if>
+			<if test="vieworder != null">
+			vieworder = #{vieworder},
+			</if>
+			<if test="opennew != null">
+			opennew = #{opennew},
+			</if>
+			<if test="url != null">
+			url = #{url},
+			</if>
+			<if test="type != null">
+			type = #{type},
+			</if>
+		</set>
+		where id = #{id}
+	</update>
+	
+	<delete id="delete" parameterType="java.lang.Integer">
+		delete from nav where id = #{value}
+	</delete>
+	
+	<delete id="batchDelete" parameterType="java.util.List">
+		delete from nav where id in
+		<foreach collection="list" item="item" open="(" close=")" separator=",">
+			#{item}
+		</foreach>
+	</delete>
+	
+</mapper>

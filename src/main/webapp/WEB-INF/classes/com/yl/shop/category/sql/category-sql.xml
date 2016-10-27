@@ -1,0 +1,424 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yl.shop.category.dao.CategoryDao">
+
+	<parameterMap id="parameterMap" type="com.yl.shop.category.entity.Category"></parameterMap>
+	<resultMap id="resultMap" type="com.yl.shop.category.entity.Category">
+		<result property="catId" column="cat_id"/>
+		<result property="catName" column="cat_name"/>
+		<result property="keywords" column="keywords"/>
+		<result property="catDesc" column="cat_desc"/>
+		<result property="parentId" column="parent_id"/>
+		<result property="sortOrder" column="sort_order"/>
+		<result property="templateFile" column="template_file"/>
+		<result property="measureUnit" column="measure_unit"/>
+		<result property="showInNav" column="show_in_nav"/>
+		<result property="style" column="style"/>
+		<result property="isShow" column="is_show"/>
+		<result property="grade" column="grade"/>
+		<result property="filterAttr" column="filter_attr"/>
+		<result property="categoryIndex" column="category_index"/>
+		<result property="categoryIndexDwt" column="category_index_dwt"/>
+		<result property="indexDwtFile" column="index_dwt_file"/>
+		<result property="showInIndex" column="show_in_index"/>
+		<result property="catIndexRightad" column="cat_index_rightad"/>
+		<result property="catAdimg1" column="cat_adimg_1"/>
+		<result property="catAdurl1" column="cat_adurl_1"/>
+		<result property="catAdimg2" column="cat_adimg_2"/>
+		<result property="catAdurl2" column="cat_adurl_2"/>
+		<result property="catNameimg" column="cat_nameimg"/>
+		<result property="brandQq" column="brand_qq"/>
+		<result property="attrWwwecshop68com" column="attr_wwwecshop68com"/>
+		<result property="pathName" column="path_name"/>
+		<result property="isVirtual" column="is_virtual"/>
+		<result property="typeImg" column="type_img"/>
+	</resultMap>
+	
+	<sql id="columnSql">
+		select
+			<trim suffixOverrides=",">
+				t.cat_id,
+				t.cat_name,
+				t.keywords,
+				t.cat_desc,
+				t.parent_id,
+				t.sort_order,
+				t.template_file,
+				t.measure_unit,
+				t.show_in_nav,
+				t.style,
+				t.is_show,
+				t.grade,
+				t.filter_attr,
+				t.category_index,
+				t.category_index_dwt,
+				t.index_dwt_file,
+				t.show_in_index,
+				t.cat_index_rightad,
+				t.cat_adimg_1,
+				t.cat_adurl_1,
+				t.cat_adimg_2,
+				t.cat_adurl_2,
+				t.cat_nameimg,
+				t.brand_qq,
+				t.attr_wwwecshop68com,
+				t.path_name,
+				t.is_virtual,
+				t.type_img,
+		 	</trim>
+		from category t
+	</sql>
+	
+	<select id="find" parameterMap="parameterMap" resultMap="resultMap">
+		<include refid="columnSql"></include>
+		<where>
+			<if test="catName != null and catName != ''">
+				t.cat_name = #{catName}
+			</if>
+			<if test="keywords != null and keywords != ''">
+				t.keywords = #{keywords}
+			</if>
+			<if test="catDesc != null and catDesc != ''">
+				t.cat_desc = #{catDesc}
+			</if>
+			<if test="parentId != null and parentId != ''">
+				t.parent_id = #{parentId}
+			</if>
+			<if test="sortOrder != null and sortOrder != ''">
+				t.sort_order = #{sortOrder}
+			</if>
+			<if test="templateFile != null and templateFile != ''">
+				t.template_file = #{templateFile}
+			</if>
+			<if test="measureUnit != null and measureUnit != ''">
+				t.measure_unit = #{measureUnit}
+			</if>
+			<if test="showInNav != null and showInNav != ''">
+				t.show_in_nav = #{showInNav}
+			</if>
+			<if test="style != null and style != ''">
+				t.style = #{style}
+			</if>
+			<if test="isShow != null and isShow != ''">
+				t.is_show = #{isShow}
+			</if>
+			<if test="grade != null and grade != ''">
+				t.grade = #{grade}
+			</if>
+			<if test="filterAttr != null and filterAttr != ''">
+				t.filter_attr = #{filterAttr}
+			</if>
+			<if test="categoryIndex != null and categoryIndex != ''">
+				t.category_index = #{categoryIndex}
+			</if>
+			<if test="categoryIndexDwt != null and categoryIndexDwt != ''">
+				t.category_index_dwt = #{categoryIndexDwt}
+			</if>
+			<if test="indexDwtFile != null and indexDwtFile != ''">
+				t.index_dwt_file = #{indexDwtFile}
+			</if>
+			<if test="showInIndex != null and showInIndex != ''">
+				t.show_in_index = #{showInIndex}
+			</if>
+			<if test="catIndexRightad != null and catIndexRightad != ''">
+				t.cat_index_rightad = #{catIndexRightad}
+			</if>
+			<if test="catAdimg1 != null and catAdimg1 != ''">
+				t.cat_adimg_1 = #{catAdimg1}
+			</if>
+			<if test="catAdurl1 != null and catAdurl1 != ''">
+				t.cat_adurl_1 = #{catAdurl1}
+			</if>
+			<if test="catAdimg2 != null and catAdimg2 != ''">
+				t.cat_adimg_2 = #{catAdimg2}
+			</if>
+			<if test="catAdurl2 != null and catAdurl2 != ''">
+				t.cat_adurl_2 = #{catAdurl2}
+			</if>
+			<if test="catNameimg != null and catNameimg != ''">
+				t.cat_nameimg = #{catNameimg}
+			</if>
+			<if test="brandQq != null and brandQq != ''">
+				t.brand_qq = #{brandQq}
+			</if>
+			<if test="attrWwwecshop68com != null and attrWwwecshop68com != ''">
+				t.attr_wwwecshop68com = #{attrWwwecshop68com}
+			</if>
+			<if test="pathName != null and pathName != ''">
+				t.path_name = #{pathName}
+			</if>
+			<if test="isVirtual != null and isVirtual != ''">
+				t.is_virtual = #{isVirtual}
+			</if>
+			<if test="typeImg != null and typeImg != ''">
+				t.type_img = #{typeImg}
+			</if>
+		</where>
+	</select>
+	
+	<select id="getById" parameterType="java.lang.Integer" resultMap="resultMap">
+		<include refid="columnSql"></include>
+		where catId = #{value}
+	</select>
+	
+	<insert id="add" parameterMap="parameterMap">
+		insert into category
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			cat_name,
+			keywords,
+			cat_desc,
+			parent_id,
+			sort_order,
+			template_file,
+			measure_unit,
+			show_in_nav,
+			style,
+			is_show,
+			grade,
+			filter_attr,
+			category_index,
+			category_index_dwt,
+			index_dwt_file,
+			show_in_index,
+			cat_index_rightad,
+			cat_adimg_1,
+			cat_adurl_1,
+			cat_adimg_2,
+			cat_adurl_2,
+			cat_nameimg,
+			brand_qq,
+			attr_wwwecshop68com,
+			path_name,
+			is_virtual,
+			type_img,
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			#{catName},
+			#{keywords},
+			#{catDesc},
+			#{parentId},
+			#{sortOrder},
+			#{templateFile},
+			#{measureUnit},
+			#{showInNav},
+			#{style},
+			#{isShow},
+			#{grade},
+			#{filterAttr},
+			#{categoryIndex},
+			#{categoryIndexDwt},
+			#{indexDwtFile},
+			#{showInIndex},
+			#{catIndexRightad},
+			#{catAdimg1},
+			#{catAdurl1},
+			#{catAdimg2},
+			#{catAdurl2},
+			#{catNameimg},
+			#{brandQq},
+			#{attrWwwecshop68com},
+			#{pathName},
+			#{isVirtual},
+			#{typeImg},
+		</trim>
+	</insert>
+	
+	<insert id="batchAdd" parameterType="java.util.List">
+		insert into category
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			cat_name,
+			keywords,
+			cat_desc,
+			parent_id,
+			sort_order,
+			template_file,
+			measure_unit,
+			show_in_nav,
+			style,
+			is_show,
+			grade,
+			filter_attr,
+			category_index,
+			category_index_dwt,
+			index_dwt_file,
+			show_in_index,
+			cat_index_rightad,
+			cat_adimg_1,
+			cat_adurl_1,
+			cat_adimg_2,
+			cat_adurl_2,
+			cat_nameimg,
+			brand_qq,
+			attr_wwwecshop68com,
+			path_name,
+			is_virtual,
+			type_img,
+		</trim>
+		values
+		<foreach collection="list" item="item" separator=",">
+			<trim prefix="(" suffix=")" suffixOverrides=",">
+				#{item.catName},
+				#{item.keywords},
+				#{item.catDesc},
+				#{item.parentId},
+				#{item.sortOrder},
+				#{item.templateFile},
+				#{item.measureUnit},
+				#{item.showInNav},
+				#{item.style},
+				#{item.isShow},
+				#{item.grade},
+				#{item.filterAttr},
+				#{item.categoryIndex},
+				#{item.categoryIndexDwt},
+				#{item.indexDwtFile},
+				#{item.showInIndex},
+				#{item.catIndexRightad},
+				#{item.catAdimg1},
+				#{item.catAdurl1},
+				#{item.catAdimg2},
+				#{item.catAdurl2},
+				#{item.catNameimg},
+				#{item.brandQq},
+				#{item.attrWwwecshop68com},
+				#{item.pathName},
+				#{item.isVirtual},
+				#{item.typeImg},
+			</trim>
+		</foreach>
+	</insert>
+	
+	<update id="update" parameterMap="parameterMap">
+		update category
+		<set>
+			cat_name = #{catName},
+			keywords = #{keywords},
+			cat_desc = #{catDesc},
+			parent_id = #{parentId},
+			sort_order = #{sortOrder},
+			template_file = #{templateFile},
+			measure_unit = #{measureUnit},
+			show_in_nav = #{showInNav},
+			style = #{style},
+			is_show = #{isShow},
+			grade = #{grade},
+			filter_attr = #{filterAttr},
+			category_index = #{categoryIndex},
+			category_index_dwt = #{categoryIndexDwt},
+			index_dwt_file = #{indexDwtFile},
+			show_in_index = #{showInIndex},
+			cat_index_rightad = #{catIndexRightad},
+			cat_adimg_1 = #{catAdimg1},
+			cat_adurl_1 = #{catAdurl1},
+			cat_adimg_2 = #{catAdimg2},
+			cat_adurl_2 = #{catAdurl2},
+			cat_nameimg = #{catNameimg},
+			brand_qq = #{brandQq},
+			attr_wwwecshop68com = #{attrWwwecshop68com},
+			path_name = #{pathName},
+			is_virtual = #{isVirtual},
+			type_img = #{typeImg},
+		</set>
+		where cat_id = #{catId}
+	</update>
+	
+	<update id="updateNotNull" parameterMap="parameterMap">
+		update category
+		<set>
+			<if test="catName != null">
+			cat_name = #{catName},
+			</if>
+			<if test="keywords != null">
+			keywords = #{keywords},
+			</if>
+			<if test="catDesc != null">
+			cat_desc = #{catDesc},
+			</if>
+			<if test="parentId != null">
+			parent_id = #{parentId},
+			</if>
+			<if test="sortOrder != null">
+			sort_order = #{sortOrder},
+			</if>
+			<if test="templateFile != null">
+			template_file = #{templateFile},
+			</if>
+			<if test="measureUnit != null">
+			measure_unit = #{measureUnit},
+			</if>
+			<if test="showInNav != null">
+			show_in_nav = #{showInNav},
+			</if>
+			<if test="style != null">
+			style = #{style},
+			</if>
+			<if test="isShow != null">
+			is_show = #{isShow},
+			</if>
+			<if test="grade != null">
+			grade = #{grade},
+			</if>
+			<if test="filterAttr != null">
+			filter_attr = #{filterAttr},
+			</if>
+			<if test="categoryIndex != null">
+			category_index = #{categoryIndex},
+			</if>
+			<if test="categoryIndexDwt != null">
+			category_index_dwt = #{categoryIndexDwt},
+			</if>
+			<if test="indexDwtFile != null">
+			index_dwt_file = #{indexDwtFile},
+			</if>
+			<if test="showInIndex != null">
+			show_in_index = #{showInIndex},
+			</if>
+			<if test="catIndexRightad != null">
+			cat_index_rightad = #{catIndexRightad},
+			</if>
+			<if test="catAdimg1 != null">
+			cat_adimg_1 = #{catAdimg1},
+			</if>
+			<if test="catAdurl1 != null">
+			cat_adurl_1 = #{catAdurl1},
+			</if>
+			<if test="catAdimg2 != null">
+			cat_adimg_2 = #{catAdimg2},
+			</if>
+			<if test="catAdurl2 != null">
+			cat_adurl_2 = #{catAdurl2},
+			</if>
+			<if test="catNameimg != null">
+			cat_nameimg = #{catNameimg},
+			</if>
+			<if test="brandQq != null">
+			brand_qq = #{brandQq},
+			</if>
+			<if test="attrWwwecshop68com != null">
+			attr_wwwecshop68com = #{attrWwwecshop68com},
+			</if>
+			<if test="pathName != null">
+			path_name = #{pathName},
+			</if>
+			<if test="isVirtual != null">
+			is_virtual = #{isVirtual},
+			</if>
+			<if test="typeImg != null">
+			type_img = #{typeImg},
+			</if>
+		</set>
+		where cat_id = #{catId}
+	</update>
+	
+	<delete id="delete" parameterType="java.lang.Integer">
+		delete from category where cat_id = #{value}
+	</delete>
+	
+	<delete id="batchDelete" parameterType="java.util.List">
+		delete from category where cat_id in
+		<foreach collection="list" item="item" open="(" close=")" separator=",">
+			#{item}
+		</foreach>
+	</delete>
+	
+</mapper>

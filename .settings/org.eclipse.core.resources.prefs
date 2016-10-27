@@ -1,0 +1,13 @@
+eclipse.preferences.version=1
+encoding//src/main/java=UTF-8
+encoding//src/main/resources/dbconfig.properties=UTF-8
+encoding//src/main/resources/log4j.properties=UTF-8
+encoding//src/main/resources/messages_en.properties=UTF-8
+encoding//src/main/resources/messages_zh_CN.properties=UTF-8
+encoding//src/main/resources/sysconfig.properties=UTF-8
+encoding//src/main/webapp/WEB-INF/shop/comm/head_nav.jsp=UTF-8
+encoding//src/main/webapp/WEB-INF/shop/comm/user_header.jsp=UTF-8
+encoding//src/main/webapp/template/default/daoTemplate.ftl=UTF-8
+encoding//src/main/webapp/template/default/jspListTemplate.ftl=UTF-8
+encoding//src/test/java=UTF-8
+encoding/<project>=UTF-8
