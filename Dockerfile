@@ -1,5 +1,5 @@
 FROM daocloud.io/rockytan/docker-base-maven-tomcat:latest
-
+MAINTAINER yongboy "yongboy@gmail.com"
 ADD pom.xml /tmp/build/
 RUN cd /tmp/build && mvn -q dependency:resolve
 
