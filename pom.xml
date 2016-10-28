@@ -376,13 +376,6 @@
 		<plugins>
 			<!-- 更改maven默认的打包目录：将class文件和lib目录打包放到指定的目录 -->
 			<plugin>
-				<artifactId>maven-war-plugin</artifactId>
-				<configuration>
-					<webappDirectory>${basedir}/src/main/webapp</webappDirectory>
-					<warSourceDirectory>${basedir}/src/main/webapp</warSourceDirectory>
-				</configuration>
-			</plugin>
-			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-surefire-plugin</artifactId>
 				<configuration>
