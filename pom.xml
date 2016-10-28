@@ -359,20 +359,7 @@
         </dependency>
   </dependencies>
  <build>
-		<resources>
-			<resource>
-				<directory>src/main/java</directory>
-				<includes>
-					<include>**/*.xml</include>
-				</includes>
-			</resource>
-			<resource>
-				<directory>src/main/resources</directory>
-				<includes>
-					<include>**/*</include>
-				</includes>
-			</resource>
-		</resources>
+		
 		<plugins>
 			<!-- 更改maven默认的打包目录：将class文件和lib目录打包放到指定的目录 -->
 			<plugin>
